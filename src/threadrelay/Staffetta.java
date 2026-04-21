@@ -17,11 +17,21 @@ public class Staffetta implements Runnable{
         this.label = label;
         this.progressBar =  progressBar;
     }
+    
     @Override
-    public void run(){
-        for(int i = 0; i < 101; i++){
-            label.setText("" + (Integer.parseInt(label.getText()) + i));
-            progressBar.setValue(i);
+    public void run() {
+        for (int i = 0; i < 101; i++) {
+            int count = i;
+            label.setText("" + count);
+            System.out.println("Thread: " + count);
+
+            try {
+                Thread.sleep(10);
+            }
+            catch (InterruptedException e) {
+                System.out.println("errore durante l'esecuzione del Thread");
+            }
         }
     }
 }
+

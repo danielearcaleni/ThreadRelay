@@ -24,32 +24,51 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="PrimaProgressBar" max="32767" attributes="0"/>
-                  <Component id="SecondaProgressBar" alignment="1" max="32767" attributes="0"/>
-                  <Component id="TerzaProgressBar" alignment="1" max="32767" attributes="0"/>
-                  <Component id="QuartaProgressBar" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="BottoneAvvia" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="PrimaProgressBar" max="32767" attributes="0"/>
+                              <Component id="SecondaProgressBar" alignment="1" max="32767" attributes="0"/>
+                              <Component id="TerzaProgressBar" alignment="1" max="32767" attributes="0"/>
+                              <Component id="QuartaProgressBar" alignment="1" min="-2" pref="159" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="Restart" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="BottoneAvvia" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblTerzoThread" pref="50" max="32767" attributes="0"/>
+                                  <Component id="lblQuartoThread" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblSecondoThread" max="32767" attributes="0"/>
+                                  <Component id="lblPrimoThread" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="Pausa" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lblTerzoThread" pref="50" max="32767" attributes="0"/>
-                  <Component id="lblQuartoThread" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lblSecondoThread" max="32767" attributes="0"/>
-                  <Component id="lblPrimoThread" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace pref="186" max="32767" attributes="0"/>
+              <EmptySpace pref="156" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="79" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -79,7 +98,11 @@
                   <Component id="lblQuartoThread" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-              <Component id="BottoneAvvia" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="BottoneAvvia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Pausa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Restart" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -133,6 +156,30 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BottoneAvviaActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Pausa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pausa"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Restart">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Restart"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Rockwell Extra Bold" size="24" style="3"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Staffetta con i Thread"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
