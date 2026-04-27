@@ -14,15 +14,35 @@ import javax.swing.JProgressBar;
 public class Corridore implements Runnable{
     private JLabel label;
     private JProgressBar progressBar;
+    private Corridore precedente;
+    int progresso = 0;
     
-    public Corridore(JLabel label, JProgressBar progressBar){
+    public Corridore(JLabel label, JProgressBar progressBar, Corridore precedente){
         this.label = label;
         this.progressBar = progressBar;
+        this.precedente = precedente;
+    }
+    
+    public int getProgresso(){
+        return progresso;
     }
 
     @Override
     public void run() {
+        if(precedente != null){
+            while(precedente.getProgresso() < 90) {
+                try {
+                    Thread.sleep(10);
+                }
+                catch(InterruptedException e){
+                    System.out.println("Errore");
+                }
+
+            }
+        }
+        
         for (int i = 0; i < 101; i++) {
+            progresso = i;
             int valore = i;
             label.setText("" + valore);
             progressBar.setValue(valore);

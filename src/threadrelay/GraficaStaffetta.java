@@ -12,14 +12,18 @@ public class GraficaStaffetta extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GraficaStaffetta.class.getName());
     Corridore c1;
+    Corridore c2;
     Thread t1;
+    Thread t2;
     /**
      * Creates new form GraficaStaffetta
      */
     public GraficaStaffetta() {
         initComponents();
-        c1 = new Corridore(lblPrimoThread, PrimaProgressBar);
+        c1 = new Corridore(lblPrimoThread, PrimaProgressBar, null);
+        c2 = new Corridore(lblSecondoThread, SecondaProgressBar, c1);
         t1 = new Thread(c1);
+        t2 = new Thread(c2);
     }
 
     /**
@@ -142,7 +146,9 @@ public class GraficaStaffetta extends javax.swing.JFrame {
 
     private void BottoneAvviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BottoneAvviaActionPerformed
         PrimaProgressBar.setValue(0);
+        
         t1.start();
+        t2.start();
     }//GEN-LAST:event_BottoneAvviaActionPerformed
 
     /**
