@@ -11,13 +11,15 @@ package threadrelay;
 public class GraficaStaffetta extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GraficaStaffetta.class.getName());
-    Staffetta s1;
+    Corridore c1;
+    Thread t1;
     /**
      * Creates new form GraficaStaffetta
      */
     public GraficaStaffetta() {
         initComponents();
-        s1 = new Staffetta(lblPrimoThread, PrimaProgressBar);
+        c1 = new Corridore(lblPrimoThread, PrimaProgressBar);
+        t1 = new Thread(c1);
     }
 
     /**
@@ -139,7 +141,8 @@ public class GraficaStaffetta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BottoneAvviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BottoneAvviaActionPerformed
-        s1.run();
+        PrimaProgressBar.setValue(0);
+        t1.start();
     }//GEN-LAST:event_BottoneAvviaActionPerformed
 
     /**
