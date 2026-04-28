@@ -13,17 +13,28 @@ public class GraficaStaffetta extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GraficaStaffetta.class.getName());
     Corridore c1;
     Corridore c2;
+    Corridore c3;
+    Corridore c4;
     Thread t1;
     Thread t2;
+    Thread t3;
+    Thread t4;
     /**
      * Creates new form GraficaStaffetta
      */
     public GraficaStaffetta() {
         initComponents();
+        
+        Riprendi.setEnabled(false);
+        
         c1 = new Corridore(lblPrimoThread, PrimaProgressBar, null);
         c2 = new Corridore(lblSecondoThread, SecondaProgressBar, c1);
+        c3 = new Corridore(lblTerzoThread, TerzaProgressBar, c2);
+        c4 = new Corridore(lblQuartoThread, QuartaProgressBar, c3);
         t1 = new Thread(c1);
         t2 = new Thread(c2);
+        t3 = new Thread(c3);
+        t4 = new Thread(c4);
     }
 
     /**
@@ -47,109 +58,79 @@ public class GraficaStaffetta extends javax.swing.JFrame {
         Pausa = new javax.swing.JButton();
         Restart = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        Riprendi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(PrimaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 79, 159, 14));
+        getContentPane().add(SecondaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 140, 159, 14));
+        getContentPane().add(TerzaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 201, 159, 14));
+        getContentPane().add(QuartaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 267, 159, 14));
 
         lblPrimoThread.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblPrimoThread.setText("0");
+        getContentPane().add(lblPrimoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 79, 50, 16));
 
         lblSecondoThread.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblSecondoThread.setText("0");
+        getContentPane().add(lblSecondoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 134, 50, -1));
 
         lblTerzoThread.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblTerzoThread.setText("0");
+        getContentPane().add(lblTerzoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 195, 50, -1));
 
         lblQuartoThread.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblQuartoThread.setText("0");
+        getContentPane().add(lblQuartoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 261, 50, -1));
 
         BottoneAvvia.setText("Avvia");
         BottoneAvvia.addActionListener(this::BottoneAvviaActionPerformed);
+        getContentPane().add(BottoneAvvia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
 
         Pausa.setText("Pausa");
+        Pausa.addActionListener(this::PausaActionPerformed);
+        getContentPane().add(Pausa, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 80, -1));
 
         Restart.setText("Restart");
+        getContentPane().add(Restart, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Staffetta con i Thread");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 6, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(PrimaProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(SecondaProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(TerzaProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(QuartaProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Restart)
-                                .addGap(47, 47, 47)
-                                .addComponent(BottoneAvvia)
-                                .addGap(11, 11, 11)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblTerzoThread, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                                    .addComponent(lblQuartoThread, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblSecondoThread, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblPrimoThread, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(Pausa)))))
-                .addContainerGap(156, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(PrimaProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(47, 47, 47))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(lblPrimoThread, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(45, 45, 45)))
-                                .addComponent(SecondaProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblSecondoThread))
-                        .addGap(47, 47, 47)
-                        .addComponent(TerzaProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblTerzoThread))
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(QuartaProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblQuartoThread))
-                .addGap(72, 72, 72)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BottoneAvvia)
-                    .addComponent(Pausa)
-                    .addComponent(Restart))
-                .addGap(60, 60, 60))
-        );
+        Riprendi.setText("Riprendi");
+        Riprendi.addActionListener(this::RiprendiActionPerformed);
+        getContentPane().add(Riprendi, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 83, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BottoneAvviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BottoneAvviaActionPerformed
-        PrimaProgressBar.setValue(0);
-        
         t1.start();
         t2.start();
+        t3.start();
+        t4.start();
     }//GEN-LAST:event_BottoneAvviaActionPerformed
+
+    private void PausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PausaActionPerformed
+        c1.pausa();
+        c2.pausa();
+        c3.pausa();
+        c4.pausa();
+        
+        Riprendi.setEnabled(true);
+    }//GEN-LAST:event_PausaActionPerformed
+
+    private void RiprendiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiprendiActionPerformed
+        Riprendi.setEnabled(false);
+        
+        c1.riprendi();
+        c2.riprendi();
+        c3.riprendi();
+        c4.riprendi();
+    }//GEN-LAST:event_RiprendiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +163,7 @@ public class GraficaStaffetta extends javax.swing.JFrame {
     private javax.swing.JProgressBar PrimaProgressBar;
     private javax.swing.JProgressBar QuartaProgressBar;
     private javax.swing.JButton Restart;
+    private javax.swing.JButton Riprendi;
     private javax.swing.JProgressBar SecondaProgressBar;
     private javax.swing.JProgressBar TerzaProgressBar;
     private javax.swing.JLabel jLabel1;

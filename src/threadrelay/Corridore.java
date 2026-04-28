@@ -16,6 +16,7 @@ public class Corridore implements Runnable{
     private JProgressBar progressBar;
     private Corridore precedente;
     int progresso = 0;
+    private boolean pausa;
     
     public Corridore(JLabel label, JProgressBar progressBar, Corridore precedente){
         this.label = label;
@@ -25,6 +26,14 @@ public class Corridore implements Runnable{
     
     public int getProgresso(){
         return progresso;
+    }
+    
+    public void pausa(){
+        pausa = true;
+    }
+    
+    public void riprendi(){
+        pausa = false;
     }
 
     @Override
@@ -42,6 +51,7 @@ public class Corridore implements Runnable{
         }
         
         for (int i = 0; i < 101; i++) {
+            controllaPausaThread();
             progresso = i;
             int valore = i;
             label.setText("" + valore);
@@ -54,5 +64,17 @@ public class Corridore implements Runnable{
                 System.out.println("Errore durante l'esecuzione del Thread");
             }
         }
+    }
+    
+    public void controllaPausaThread() {
+        while (pausa == true) {
+            try {
+                wait();
+            }
+            catch (InterruptedException e) {
+                System.out.println("Errore durante l'esecuzione del Thread");
+            }
+        }
+        notifyAll();
     }
 }
