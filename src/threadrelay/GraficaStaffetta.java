@@ -31,6 +31,7 @@ public class GraficaStaffetta extends javax.swing.JFrame {
         c2 = new Corridore(lblSecondoThread, SecondaProgressBar, c1);
         c3 = new Corridore(lblTerzoThread, TerzaProgressBar, c2);
         c4 = new Corridore(lblQuartoThread, QuartaProgressBar, c3);
+        
         t1 = new Thread(c1);
         t2 = new Thread(c2);
         t3 = new Thread(c3);
@@ -92,6 +93,7 @@ public class GraficaStaffetta extends javax.swing.JFrame {
         getContentPane().add(Pausa, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 80, -1));
 
         Restart.setText("Restart");
+        Restart.addActionListener(this::RestartActionPerformed);
         getContentPane().add(Restart, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -108,10 +110,17 @@ public class GraficaStaffetta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BottoneAvviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BottoneAvviaActionPerformed
+        t1 = new Thread(c1);
+        t2 = new Thread(c2);
+        t3 = new Thread(c3);
+        t4 = new Thread(c4);
+        
         t1.start();
         t2.start();
         t3.start();
         t4.start();
+        
+        BottoneAvvia.setEnabled(false);
     }//GEN-LAST:event_BottoneAvviaActionPerformed
 
     private void PausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PausaActionPerformed
@@ -131,6 +140,30 @@ public class GraficaStaffetta extends javax.swing.JFrame {
         c3.riprendi();
         c4.riprendi();
     }//GEN-LAST:event_RiprendiActionPerformed
+
+    private void RestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartActionPerformed
+        BottoneAvvia.setEnabled(true);
+        
+        c1.fermo();
+        c2.fermo();
+        c3.fermo();
+        c4.fermo();
+        
+        c1.reset();
+        c2.reset();
+        c3.reset();
+        c4.reset();
+        
+        c1 = new Corridore(lblPrimoThread, PrimaProgressBar, null);
+        c2 = new Corridore(lblSecondoThread, SecondaProgressBar, c1);
+        c3 = new Corridore(lblTerzoThread, TerzaProgressBar, c2);
+        c4 = new Corridore(lblQuartoThread, QuartaProgressBar, c3);
+        
+        t1 = new Thread(c1);
+        t2 = new Thread(c2);
+        t3 = new Thread(c3);
+        t4 = new Thread(c4);
+    }//GEN-LAST:event_RestartActionPerformed
 
     /**
      * @param args the command line arguments
