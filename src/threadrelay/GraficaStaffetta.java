@@ -26,6 +26,7 @@ public class GraficaStaffetta extends javax.swing.JFrame {
         initComponents();
         
         Riprendi.setEnabled(false);
+        Restart.setEnabled(false);
         
         c1 = new Corridore(lblPrimoThread, PrimaProgressBar, null);
         c2 = new Corridore(lblSecondoThread, SecondaProgressBar, c1);
@@ -130,10 +131,12 @@ public class GraficaStaffetta extends javax.swing.JFrame {
         c4.pausa();
         
         Riprendi.setEnabled(true);
+        Restart.setEnabled(true);
     }//GEN-LAST:event_PausaActionPerformed
 
     private void RiprendiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiprendiActionPerformed
         Riprendi.setEnabled(false);
+        Restart.setEnabled(false);
         
         c1.riprendi();
         c2.riprendi();
@@ -143,6 +146,7 @@ public class GraficaStaffetta extends javax.swing.JFrame {
 
     private void RestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartActionPerformed
         BottoneAvvia.setEnabled(true);
+        Restart.setEnabled(false);
         
         c1.fermo();
         c2.fermo();
