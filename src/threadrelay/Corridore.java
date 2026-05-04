@@ -6,6 +6,7 @@ package threadrelay;
 
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -18,11 +19,13 @@ public class Corridore implements Runnable{
     int progresso = 0;
     private boolean pausa;
     private boolean fermati = false;
+    private JComboBox impostaVelocita;
     
-    public Corridore(JLabel label, JProgressBar progressBar, Corridore precedente){
+    public Corridore(JLabel label, JProgressBar progressBar, Corridore precedente, JComboBox impostaVelocita){
         this.label = label;
         this.progressBar = progressBar;
         this.precedente = precedente;
+        this.impostaVelocita = impostaVelocita;
     }
     
     public int getProgresso(){
@@ -38,8 +41,12 @@ public class Corridore implements Runnable{
         notifyAll();
     }
     
-    public synchronized void fermo(){
+    public synchronized void fermo() {
         fermati = true;
+    }
+
+    public void cambiaVelocita(JComboBox velocita) {
+        impostaVelocita = velocita;
     }
 
     @Override
@@ -56,7 +63,7 @@ public class Corridore implements Runnable{
             }
         }
         
-        for (int i = 0; i < 101 && fermati == true; i++) {
+        for (int i = 0; i < 101 && fermati == false; i++) {
             controllaPausaThread();
             progresso = i;
             int valore = i;

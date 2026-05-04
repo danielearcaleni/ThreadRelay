@@ -27,11 +27,12 @@ public class GraficaStaffetta extends javax.swing.JFrame {
         
         Riprendi.setEnabled(false);
         Restart.setEnabled(false);
+        Pausa.setEnabled(false);
         
-        c1 = new Corridore(lblPrimoThread, PrimaProgressBar, null);
-        c2 = new Corridore(lblSecondoThread, SecondaProgressBar, c1);
-        c3 = new Corridore(lblTerzoThread, TerzaProgressBar, c2);
-        c4 = new Corridore(lblQuartoThread, QuartaProgressBar, c3);
+        c1 = new Corridore(lblPrimoThread, PrimaProgressBar, null, VelocitaBox);
+        c2 = new Corridore(lblSecondoThread, SecondaProgressBar, c1, VelocitaBox);
+        c3 = new Corridore(lblTerzoThread, TerzaProgressBar, c2, VelocitaBox);
+        c4 = new Corridore(lblQuartoThread, QuartaProgressBar, c3, VelocitaBox);
         
         t1 = new Thread(c1);
         t2 = new Thread(c2);
@@ -61,29 +62,30 @@ public class GraficaStaffetta extends javax.swing.JFrame {
         Restart = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Riprendi = new javax.swing.JButton();
+        VelocitaBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(PrimaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 79, 159, 14));
-        getContentPane().add(SecondaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 140, 159, 14));
-        getContentPane().add(TerzaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 201, 159, 14));
-        getContentPane().add(QuartaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 267, 159, 14));
+        getContentPane().add(PrimaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 79, 200, 20));
+        getContentPane().add(SecondaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 200, 20));
+        getContentPane().add(TerzaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 201, 200, 20));
+        getContentPane().add(QuartaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 267, 200, 20));
 
         lblPrimoThread.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblPrimoThread.setText("0");
-        getContentPane().add(lblPrimoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 79, 50, 16));
+        getContentPane().add(lblPrimoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 79, 50, 20));
 
         lblSecondoThread.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblSecondoThread.setText("0");
-        getContentPane().add(lblSecondoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 134, 50, -1));
+        getContentPane().add(lblSecondoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 134, 50, 30));
 
         lblTerzoThread.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblTerzoThread.setText("0");
-        getContentPane().add(lblTerzoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 195, 50, -1));
+        getContentPane().add(lblTerzoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 195, 50, 30));
 
         lblQuartoThread.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblQuartoThread.setText("0");
-        getContentPane().add(lblQuartoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 261, 50, -1));
+        getContentPane().add(lblQuartoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 261, 50, 30));
 
         BottoneAvvia.setText("Avvia");
         BottoneAvvia.addActionListener(this::BottoneAvviaActionPerformed);
@@ -107,6 +109,9 @@ public class GraficaStaffetta extends javax.swing.JFrame {
         Riprendi.addActionListener(this::RiprendiActionPerformed);
         getContentPane().add(Riprendi, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 83, -1));
 
+        VelocitaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lento", "Normale", "Veloce" }));
+        getContentPane().add(VelocitaBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -122,6 +127,7 @@ public class GraficaStaffetta extends javax.swing.JFrame {
         t4.start();
         
         BottoneAvvia.setEnabled(false);
+        Pausa.setEnabled(true);
     }//GEN-LAST:event_BottoneAvviaActionPerformed
 
     private void PausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PausaActionPerformed
@@ -147,6 +153,7 @@ public class GraficaStaffetta extends javax.swing.JFrame {
     private void RestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartActionPerformed
         BottoneAvvia.setEnabled(true);
         Restart.setEnabled(false);
+        Riprendi.setEnabled(false);
         
         c1.fermo();
         c2.fermo();
@@ -158,10 +165,10 @@ public class GraficaStaffetta extends javax.swing.JFrame {
         c3.reset();
         c4.reset();
         
-        c1 = new Corridore(lblPrimoThread, PrimaProgressBar, null);
-        c2 = new Corridore(lblSecondoThread, SecondaProgressBar, c1);
-        c3 = new Corridore(lblTerzoThread, TerzaProgressBar, c2);
-        c4 = new Corridore(lblQuartoThread, QuartaProgressBar, c3);
+        c1 = new Corridore(lblPrimoThread, PrimaProgressBar, null, VelocitaBox);
+        c2 = new Corridore(lblSecondoThread, SecondaProgressBar, c1, VelocitaBox);
+        c3 = new Corridore(lblTerzoThread, TerzaProgressBar, c2, VelocitaBox);
+        c4 = new Corridore(lblQuartoThread, QuartaProgressBar, c3, VelocitaBox);
         
         t1 = new Thread(c1);
         t2 = new Thread(c2);
@@ -203,6 +210,7 @@ public class GraficaStaffetta extends javax.swing.JFrame {
     private javax.swing.JButton Riprendi;
     private javax.swing.JProgressBar SecondaProgressBar;
     private javax.swing.JProgressBar TerzaProgressBar;
+    private javax.swing.JComboBox<String> VelocitaBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblPrimoThread;
     private javax.swing.JLabel lblQuartoThread;
