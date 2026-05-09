@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package threadrelay;
-
+import java.awt.*;
+import java.awt.Font;
+import javax.swing.*;
+import javax.swing.SwingConstants;
 /**
  *
  * @author ARCALENI.DANIELE2
