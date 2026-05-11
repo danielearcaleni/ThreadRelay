@@ -3,10 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package threadrelay;
-import java.awt.*;
-import java.awt.Font;
-import javax.swing.*;
-import javax.swing.SwingConstants;
+
 /**
  *
  * @author ARCALENI.DANIELE2
@@ -69,51 +66,51 @@ public class GraficaStaffetta extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(PrimaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 79, 200, 20));
-        getContentPane().add(SecondaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 200, 20));
-        getContentPane().add(TerzaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 201, 200, 20));
-        getContentPane().add(QuartaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 267, 200, 20));
+        getContentPane().add(PrimaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 200, 20));
+        getContentPane().add(SecondaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 200, 20));
+        getContentPane().add(TerzaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 200, 20));
+        getContentPane().add(QuartaProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 200, 20));
 
         lblPrimoThread.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblPrimoThread.setText("0");
-        getContentPane().add(lblPrimoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 79, 50, 20));
+        getContentPane().add(lblPrimoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 50, 20));
 
         lblSecondoThread.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblSecondoThread.setText("0");
-        getContentPane().add(lblSecondoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 134, 50, 30));
+        getContentPane().add(lblSecondoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 50, 30));
 
         lblTerzoThread.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblTerzoThread.setText("0");
-        getContentPane().add(lblTerzoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 195, 50, 30));
+        getContentPane().add(lblTerzoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 50, 30));
 
         lblQuartoThread.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         lblQuartoThread.setText("0");
-        getContentPane().add(lblQuartoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 261, 50, 30));
+        getContentPane().add(lblQuartoThread, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 50, 30));
 
         BottoneAvvia.setText("Avvia");
         BottoneAvvia.addActionListener(this::BottoneAvviaActionPerformed);
-        getContentPane().add(BottoneAvvia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
+        getContentPane().add(BottoneAvvia, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, -1));
 
         Pausa.setText("Pausa");
         Pausa.addActionListener(this::PausaActionPerformed);
-        getContentPane().add(Pausa, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 80, -1));
+        getContentPane().add(Pausa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 80, -1));
 
         Restart.setText("Restart");
         Restart.addActionListener(this::RestartActionPerformed);
-        getContentPane().add(Restart, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, -1));
+        getContentPane().add(Restart, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Staffetta con i Thread");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 6, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
         Riprendi.setText("Riprendi");
         Riprendi.addActionListener(this::RiprendiActionPerformed);
-        getContentPane().add(Riprendi, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 83, -1));
+        getContentPane().add(Riprendi, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 83, -1));
 
         VelocitaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lento", "Normale", "Veloce" }));
-        getContentPane().add(VelocitaBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, -1, -1));
+        getContentPane().add(VelocitaBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

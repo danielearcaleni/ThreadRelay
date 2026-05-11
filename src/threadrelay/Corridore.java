@@ -54,7 +54,7 @@ public class Corridore implements Runnable{
         if(precedente != null){
             while(precedente.getProgresso() < 90) {
                 try {
-                    Thread.sleep(10);
+                    Thread.sleep(20);
                 }
                 catch(InterruptedException e){
                     System.out.println("Errore");
@@ -71,7 +71,18 @@ public class Corridore implements Runnable{
             progressBar.setValue(valore);
 
             try {
-                Thread.sleep(20);
+                String velocita = impostaVelocita.getSelectedItem().toString();
+                
+                if(velocita.equals("Lento")){
+                    Thread.sleep(50);
+                }
+                else if(velocita.equals("Normale")){
+                    Thread.sleep(30);
+                }
+                else{
+                    Thread.sleep(10);
+                }
+                
             }
             catch(InterruptedException e) {
                 System.out.println("Errore durante l'esecuzione del Thread");
