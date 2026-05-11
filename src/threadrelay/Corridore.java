@@ -45,10 +45,6 @@ public class Corridore implements Runnable{
         fermati = true;
     }
 
-    public void cambiaVelocita(JComboBox velocita) {
-        impostaVelocita = velocita;
-    }
-
     @Override
     public void run() {
         if(precedente != null){

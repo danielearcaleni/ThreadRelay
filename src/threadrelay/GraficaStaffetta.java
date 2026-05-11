@@ -24,7 +24,7 @@ public class GraficaStaffetta extends javax.swing.JFrame {
      */
     public GraficaStaffetta() {
         initComponents();
-        
+                
         Riprendi.setEnabled(false);
         Restart.setEnabled(false);
         Pausa.setEnabled(false);
@@ -39,7 +39,7 @@ public class GraficaStaffetta extends javax.swing.JFrame {
         t3 = new Thread(c3);
         t4 = new Thread(c4);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -107,7 +107,7 @@ public class GraficaStaffetta extends javax.swing.JFrame {
 
         Riprendi.setText("Riprendi");
         Riprendi.addActionListener(this::RiprendiActionPerformed);
-        getContentPane().add(Riprendi, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 83, -1));
+        getContentPane().add(Riprendi, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 83, -1));
 
         VelocitaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lento", "Normale", "Veloce" }));
         getContentPane().add(VelocitaBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, -1));
